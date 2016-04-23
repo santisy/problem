@@ -54,6 +54,7 @@ netOptim.train = function(inputs, action, qFormer)
        return f,gradParameters
     end
     optim.adam(feval, parameters, config, state)
+    xlua.progress(epoch, 200)
   end
   -- print(timer:time().real)
   -- io.write("\n")
