@@ -1,0 +1,810 @@
+Prefix set to /home/ddyang/torch/install
+Installing Lua version: LUAJIT21
+Installing common Lua packages
+gcc -O2 -fPIC -I/home/ddyang/torch/install/include -c src/lfs.c -o src/lfs.o
+gcc -shared -o lfs.so -L/home/ddyang/torch/install/lib src/lfs.o
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+luafilesystem 1.6.3-1 is now built and installed in /home/ddyang/torch/install/ (license: MIT/X11)
+
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+penlight scm-1 is now built and installed in /home/ddyang/torch/install/ (license: MIT/X11)
+
+gcc -O2 -fPIC -I/home/ddyang/torch/install/include -c lua_cjson.c -o lua_cjson.o
+gcc -O2 -fPIC -I/home/ddyang/torch/install/include -c strbuf.c -o strbuf.o
+gcc -O2 -fPIC -I/home/ddyang/torch/install/include -c fpconv.c -o fpconv.o
+gcc -shared -o cjson.so -L/home/ddyang/torch/install/lib lua_cjson.o strbuf.o fpconv.o
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+lua-cjson 2.1devel-1 is now built and installed in /home/ddyang/torch/install/ (license: MIT)
+
+Installing core Torch packages
+gcc -O2 -fPIC -I/home/ddyang/torch/install/include -c test.c -o test.o
+gcc -shared -o ffi/libtest.so -L/home/ddyang/torch/install/lib test.o
+gcc -O2 -fPIC -I/home/ddyang/torch/install/include -c call.c -o call.o -Idynasm
+gcc -O2 -fPIC -I/home/ddyang/torch/install/include -c ctype.c -o ctype.o -Idynasm
+gcc -O2 -fPIC -I/home/ddyang/torch/install/include -c ffi.c -o ffi.o -Idynasm
+gcc -O2 -fPIC -I/home/ddyang/torch/install/include -c parser.c -o parser.o -Idynasm
+gcc -shared -o ffi.so -L/home/ddyang/torch/install/lib call.o ctype.o ffi.o parser.o
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+luaffi scm-1 is now built and installed in /home/ddyang/torch/install/ (license: BSD)
+
+gcc -O2 -fPIC -I/home/ddyang/torch/install/include -c src/autolink.c -o src/autolink.o -Isrc/ -Ihtml/
+gcc -O2 -fPIC -I/home/ddyang/torch/install/include -c src/buffer.c -o src/buffer.o -Isrc/ -Ihtml/
+gcc -O2 -fPIC -I/home/ddyang/torch/install/include -c src/markdown.c -o src/markdown.o -Isrc/ -Ihtml/
+gcc -O2 -fPIC -I/home/ddyang/torch/install/include -c src/stack.c -o src/stack.o -Isrc/ -Ihtml/
+gcc -O2 -fPIC -I/home/ddyang/torch/install/include -c html/houdini_href_e.c -o html/houdini_href_e.o -Isrc/ -Ihtml/
+gcc -O2 -fPIC -I/home/ddyang/torch/install/include -c html/houdini_html_e.c -o html/houdini_html_e.o -Isrc/ -Ihtml/
+gcc -O2 -fPIC -I/home/ddyang/torch/install/include -c html/html.c -o html/html.o -Isrc/ -Ihtml/
+gcc -O2 -fPIC -I/home/ddyang/torch/install/include -c html/html_smartypants.c -o html/html_smartypants.o -Isrc/ -Ihtml/
+gcc -shared -o libsundown.so -L/home/ddyang/torch/install/lib src/autolink.o src/buffer.o src/markdown.o src/stack.o html/houdini_href_e.o html/houdini_html_e.o html/html.o html/html_smartypants.o
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+sundown scm-1 is now built and installed in /home/ddyang/torch/install/ (license: BSD)
+
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+cwrap scm-1 is now built and installed in /home/ddyang/torch/install/ (license: BSD)
+
+Warning: unmatched variable LUALIB
+cmake -E make_directory build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release -DLUALIB= -DLUA_INCDIR="/home/ddyang/torch/install/include" -DLUA_LIBDIR="/home/ddyang/torch/install/lib" -DLUADIR="/home/ddyang/torch/install/lib/luarocks/rocks/paths/scm-1/lua" -DLIBDIR="/home/ddyang/torch/install/lib/luarocks/rocks/paths/scm-1/lib" -DCMAKE_INSTALL_PREFIX="/home/ddyang/torch/install/lib/luarocks/rocks/paths/scm-1" && make
+
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ddyang/torch/pkg/paths/build
+[100%] Built target paths
+cd build && make install
+[100%] Built target paths
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/paths/scm-1/lua/paths/init.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/paths/scm-1/lib/libpaths.so
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+paths scm-1 is now built and installed in /home/ddyang/torch/install/ (license: BSD)
+
+Warning: unmatched variable LUALIB
+cmake -E make_directory build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release -DLUA=/home/ddyang/torch/install/bin/luajit -DLUALIB= -DLUA_BINDIR="/home/ddyang/torch/install/bin" -DLUA_INCDIR="/home/ddyang/torch/install/include" -DLUA_LIBDIR="/home/ddyang/torch/install/lib" -DLUADIR="/home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua" -DLIBDIR="/home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lib" -DCMAKE_INSTALL_PREFIX="/home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1" && make -j$(getconf _NPROCESSORS_ONLN)
+
+-- Compiling with OpenMP support
+-- Compiling with OpenMP support
+-- Could not find hardware support for NEON on this machine.
+-- No OMAP3 processor on this on this machine.
+-- No OMAP4 processor on this on this machine.
+-- Atomics: using GCC intrinsics
+-- Checking for [mkl_gf_lp64 - mkl_gnu_thread - mkl_core - pthread - m]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf_lp64 - mkl_intel_thread - mkl_core - pthread - m]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_gnu_thread - mkl_core - pthread - m]
+--   Library mkl_gf: not found
+-- Checking for [mkl_gf - mkl_intel_thread - mkl_core - pthread - m]
+--   Library mkl_gf: not found
+-- Checking for [mkl_intel_lp64 - mkl_gnu_thread - mkl_core - pthread - m]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel_lp64 - mkl_intel_thread - mkl_core - pthread - m]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_gnu_thread - mkl_core - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_sequential - mkl_core - m]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_sequential - mkl_core - m]
+--   Library mkl_gf: not found
+-- Checking for [mkl_intel_lp64 - mkl_sequential - mkl_core - m]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_sequential - mkl_core - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_gnu_thread - mkl_core - pthread - m]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf_lp64 - mkl_intel_thread - mkl_core - pthread - m]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_gnu_thread - mkl_core - pthread - m]
+--   Library mkl_gf: not found
+-- Checking for [mkl_gf - mkl_intel_thread - mkl_core - pthread - m]
+--   Library mkl_gf: not found
+-- Checking for [mkl_intel_lp64 - mkl_gnu_thread - mkl_core - pthread - m]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel_lp64 - mkl_intel_thread - mkl_core - pthread - m]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_gnu_thread - mkl_core - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - pthread - m]
+--   Library mkl_intel: not found
+-- Checking for [mkl - guide - pthread - m]
+--   Library mkl: not found
+-- MKL library not found
+-- Checking for [openblas]
+--   Library openblas: /usr/lib/libopenblas.so
+-- Found a library with BLAS API (open).
+-- Found a library with LAPACK API. (open)
+-- C inline is supported (inline)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ddyang/torch/pkg/torch/build
+[  5%] Built target luaT
+[ 52%] Built target TH
+[100%] Built target torch
+cd build && make install
+[  5%] Built target luaT
+[ 52%] Built target TH
+[100%] Built target torch
+Install the project...
+-- Install configuration: "Release"
+-- Up-to-date: /home/ddyang/torch/install/share/cmake/torch/TorchExports.cmake
+-- Installing: /home/ddyang/torch/install/share/cmake/torch/TorchExports-release.cmake
+-- Up-to-date: /home/ddyang/torch/install/share/cmake/torch/TorchConfig.cmake
+-- Up-to-date: /home/ddyang/torch/install/share/cmake/torch/TorchWrap.cmake
+-- Up-to-date: /home/ddyang/torch/install/share/cmake/torch/TorchPathsInit.cmake
+-- Up-to-date: /home/ddyang/torch/install/share/cmake/torch/TorchPackage.cmake
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lib/libtorch.so
+-- Set runtime path of "/home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lib/libtorch.so" to "$ORIGIN/../lib:/home/ddyang/torch/install/lib"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/init.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/File.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/Tensor.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/CmdLine.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/FFI.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/Tester.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/TestSuite.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/test.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/README.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/doc
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/doc/utility.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/doc/serialization.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/doc/memoryfile.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/doc/cmdline.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/doc/index.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/doc/gather.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/doc/file.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/doc/tester.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/doc/storage.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/doc/diskfile.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/doc/tensor.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/doc/pipefile.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/doc/random.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/doc/maths.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/torch/scm-1/lua/torch/doc/timer.md
+-- Up-to-date: /home/ddyang/torch/install/lib/libTH.so
+-- Up-to-date: /home/ddyang/torch/install/include/TH/TH.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/THAllocator.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/THMath.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/THBlas.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/THDiskFile.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/THFile.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/THFilePrivate.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/THGeneral.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/THGenerateAllTypes.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/THGenerateFloatTypes.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/THGenerateIntTypes.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/THLapack.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/THLogAdd.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/THMemoryFile.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/THRandom.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/THStorage.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/THTensor.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/THTensorApply.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/THTensorDimApply.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/THTensorMacros.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/THVector.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/THAtomic.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/generic/THBlas.c
+-- Up-to-date: /home/ddyang/torch/install/include/TH/generic/THBlas.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/generic/THLapack.c
+-- Up-to-date: /home/ddyang/torch/install/include/TH/generic/THLapack.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/generic/THStorage.c
+-- Up-to-date: /home/ddyang/torch/install/include/TH/generic/THStorage.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/generic/THStorageCopy.c
+-- Up-to-date: /home/ddyang/torch/install/include/TH/generic/THStorageCopy.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/generic/THTensor.c
+-- Up-to-date: /home/ddyang/torch/install/include/TH/generic/THTensor.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/generic/THTensorConv.c
+-- Up-to-date: /home/ddyang/torch/install/include/TH/generic/THTensorConv.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/generic/THTensorCopy.c
+-- Up-to-date: /home/ddyang/torch/install/include/TH/generic/THTensorCopy.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/generic/THTensorLapack.c
+-- Up-to-date: /home/ddyang/torch/install/include/TH/generic/THTensorLapack.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/generic/THTensorMath.c
+-- Up-to-date: /home/ddyang/torch/install/include/TH/generic/THTensorMath.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/generic/THTensorRandom.c
+-- Up-to-date: /home/ddyang/torch/install/include/TH/generic/THTensorRandom.h
+-- Up-to-date: /home/ddyang/torch/install/include/TH/generic/THVector.c
+-- Up-to-date: /home/ddyang/torch/install/share/cmake/torch/THConfig.cmake
+-- Up-to-date: /home/ddyang/torch/install/lib/libluaT.so
+-- Up-to-date: /home/ddyang/torch/install/include/luaT.h
+-- Up-to-date: /home/ddyang/torch/install/share/cmake/torch/luaTConfig.cmake
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+torch scm-1 is now built and installed in /home/ddyang/torch/install/ (license: BSD)
+
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+dok scm-1 is now built and installed in /home/ddyang/torch/install/ (license: BSD)
+
+gcc -O2 -fPIC -I/home/ddyang/torch/install/include -c utils.c -o utils.o
+gcc -shared -o treplutils.so -L/home/ddyang/torch/install/lib utils.o
+gcc -O2 -fPIC -I/home/ddyang/torch/install/include -c readline.c -o readline.o
+gcc -shared -o readline.so -L/home/ddyang/torch/install/lib readline.o -lreadline
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+trepl scm-1 is now built and installed in /home/ddyang/torch/install/ (license: BSD)
+
+Warning: unmatched variable LUALIB
+cmake -E make_directory build && cd build && cmake .. -DLUALIB= -DCMAKE_BUILD_TYPE=Release  -DCMAKE_INSTALL_PREFIX="/home/ddyang/torch/install/lib/luarocks/rocks/sys/1.1-0" && make
+-- Found Torch7 in /home/ddyang/torch/install
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ddyang/torch/pkg/sys/build
+[100%] Built target sys
+cd build && make install
+[100%] Built target sys
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/sys/1.1-0/lib/libsys.so
+-- Set runtime path of "/home/ddyang/torch/install/lib/luarocks/rocks/sys/1.1-0/lib/libsys.so" to "$ORIGIN/../lib:/home/ddyang/torch/install/lib"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/sys/1.1-0/lua/sys/init.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/sys/1.1-0/lua/sys/colors.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/sys/1.1-0/lua/sys/fpath.lua
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+sys 1.1-0 is now built and installed in /home/ddyang/torch/install/ (license: BSD)
+
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+xlua 1.0-0 is now built and installed in /home/ddyang/torch/install/ (license: BSD)
+
+cmake -E make_directory build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="/home/ddyang/torch/install/bin/.." -DCMAKE_INSTALL_PREFIX="/home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1"  -DLUA_INCDIR="/home/ddyang/torch/install/include" -DLUA_LIBDIR="/home/ddyang/torch/install/lib" && make
+
+-- Found Torch7 in /home/ddyang/torch/install
+-- Compiling with OpenMP support
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ddyang/torch/extra/nn/build
+[100%] Built target THNN
+cd build && make install
+[100%] Built target THNN
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SmoothL1Criterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Parallel.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Concat.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Mul.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/JoinTable.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/PReLU.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialReplicationPadding.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/DotProduct.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Log.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialDivisiveNormalization.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/VolumetricFullConvolution.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Clamp.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialFullConvolutionMap.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/CAddTable.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialConvolution.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/HardTanh.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Unsqueeze.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/MM.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SplitTable.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/VolumetricAveragePooling.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/MulConstant.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialLPPooling.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/L1Penalty.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/L1HingeEmbeddingCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Criterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/AbsCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/NarrowTable.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/MultiCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/MultiLabelSoftMarginCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/RReLU.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/test.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Dropout.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/LogSigmoid.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/MSECriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/ReLU.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/CriterionTable.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Sequential.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialFullConvolution.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/MarginRankingCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/VolumetricDropout.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Abs.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Bilinear.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Tanh.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/AddConstant.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/DistKLDivCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/View.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Cosine.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/ErrorMessages.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/MultiLabelMarginCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/BCECriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialUpSamplingNearest.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/THNN.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/MultiMarginCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/ClassSimplexCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/BatchNormalization.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/CSubTable.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/StochasticGradient.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Square.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/MV.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SoftPlus.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/LogSoftMax.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialCrossMapLRN.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/VolumetricMaxPooling.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/MixtureTable.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/VolumetricConvolution.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/ClassNLLCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialMaxPooling.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/THNN_h.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SelectTable.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Reshape.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/MarginCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/TemporalSubSampling.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Sum.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/GradientReversal.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialSoftMax.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/CosineDistance.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/HardShrink.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialAdaptiveMaxPooling.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialConvolutionMM.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/ELU.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/ParallelTable.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/PairwiseDistance.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/TemporalConvolution.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Module.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/CMul.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/DepthConcat.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/CosineEmbeddingCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Replicate.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/CrossEntropyCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SoftMin.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialAveragePooling.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialMaxUnpooling.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/LeakyReLU.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/utils.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialConvolutionMap.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Exp.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/ConcatTable.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Container.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialConvolutionLocal.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialFractionalMaxPooling.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SoftMax.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Min.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SoftSign.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/hessian.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Euclidean.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/LookupTable.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SoftShrink.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/TanhShrink.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Select.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialReflectionPadding.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/TemporalMaxPooling.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialSubtractiveNormalization.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/WeightedMSECriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Index.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/init.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Add.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/FlattenTable.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/MaskedSelect.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Max.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Contiguous.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/CMulTable.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Padding.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Squeeze.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/WeightedEuclidean.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/PartialLinear.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialDropout.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/ParallelCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialBatchNormalization.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialZeroPadding.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Normalize.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Power.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Identity.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/CDivTable.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/L1Cost.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialContrastiveNormalization.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Jacobian.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Threshold.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Transpose.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SoftMarginCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Mean.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Copy.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Sigmoid.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/HingeEmbeddingCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Linear.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/VolumetricMaxUnpooling.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SpatialSubSampling.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Sqrt.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/Narrow.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/VolumetricBatchNormalization.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SparseJacobian.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/SparseLinear.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/containers.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/overview.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/index.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/training.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/simple.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/module.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/convolution.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/criterion.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/sqrt.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/prelu.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/htanh.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/sigmmoid.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/logsigmoid.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/logsoftmax.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/square.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/sigmoid.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/elu.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/rrelu.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/softsign.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/power.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/lenap.jpg
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/sshrink.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/softmax.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/lena.jpg
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/hshrink.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/relu.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/abs.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/exp.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/softplus.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/softmin.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/image/tanh.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/table.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/transfer.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/doc/testing.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lua/nn/README.md
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lib/libTHNN.so
+-- Set runtime path of "/home/ddyang/torch/install/lib/luarocks/rocks/nn/scm-1/lib/libTHNN.so" to "$ORIGIN/../lib:/home/ddyang/torch/install/lib"
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+nn scm-1 is now built and installed in /home/ddyang/torch/install/ (license: BSD)
+
+cmake -E make_directory build;
+cd build;
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="/home/ddyang/torch/install/bin/.." -DCMAKE_INSTALL_PREFIX="/home/ddyang/torch/install/lib/luarocks/rocks/graph/scm-1"; 
+make
+   
+-- Found Torch7 in /home/ddyang/torch/install
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ddyang/torch/extra/graph/build
+cd build && make install
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/graph/scm-1/lua/graph/Edge.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/graph/scm-1/lua/graph/graphviz.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/graph/scm-1/lua/graph/init.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/graph/scm-1/lua/graph/Node.lua
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+graph scm-1 is now built and installed in /home/ddyang/torch/install/ (license: UNKNOWN)
+
+cmake -E make_directory build;
+cd build;
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="/home/ddyang/torch/install/bin/.." -DCMAKE_INSTALL_PREFIX="/home/ddyang/torch/install/lib/luarocks/rocks/nngraph/scm-1"; 
+make
+   
+-- Found Torch7 in /home/ddyang/torch/install
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ddyang/torch/extra/nngraph/build
+cd build && make install
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nngraph/scm-1/lua/nngraph/node.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nngraph/scm-1/lua/nngraph/gmodule.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nngraph/scm-1/lua/nngraph/graphinspecting.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nngraph/scm-1/lua/nngraph/JustTable.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nngraph/scm-1/lua/nngraph/nesting.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nngraph/scm-1/lua/nngraph/JustElement.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nngraph/scm-1/lua/nngraph/utils.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nngraph/scm-1/lua/nngraph/init.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nngraph/scm-1/lua/nngraph/ModuleFromCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nngraph/scm-1/lua/nngraph/nest.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nngraph/scm-1/lua/nngraph/simple_print.lua
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+nngraph scm-1 is now built and installed in /home/ddyang/torch/install/ (license: UNKNOWN)
+
+Warning: unmatched variable LUALIB
+cmake -E make_directory build && cd build && cmake .. -DLUALIB= -DLUA_INCDIR="/home/ddyang/torch/install/include" -DLUA_LIBDIR="/home/ddyang/torch/install/lib"  -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="/home/ddyang/torch/install/bin/.." -DCMAKE_INSTALL_PREFIX="/home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0" && make
+   
+-- Found Torch7 in /home/ddyang/torch/install
+-- Compiling with OpenMP support
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ddyang/torch/pkg/image/build
+[ 25%] Built target ppm
+[ 50%] Built target jpeg
+[ 75%] Built target png
+[100%] Built target image
+cd build && make install
+[ 25%] Built target ppm
+[ 50%] Built target jpeg
+[ 75%] Built target png
+[100%] Built target image
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lib/libppm.so
+-- Set runtime path of "/home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lib/libppm.so" to "$ORIGIN/../lib:/home/ddyang/torch/install/lib"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lib/libjpeg.so
+-- Set runtime path of "/home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lib/libjpeg.so" to "$ORIGIN/../lib:/home/ddyang/torch/install/lib"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lib/libpng.so
+-- Set runtime path of "/home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lib/libpng.so" to "$ORIGIN/../lib:/home/ddyang/torch/install/lib"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lib/libimage.so
+-- Set runtime path of "/home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lib/libimage.so" to "$ORIGIN/../lib:/home/ddyang/torch/install/lib"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lua/image/init.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lua/image/win.ui
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lua/image/test.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lua/image/assets
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lua/image/assets/rgb16-2x1.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lua/image/assets/fabio.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lua/image/assets/gray3x1.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lua/image/assets/rgb2x1.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lua/image/assets/corrupt-ihdr.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lua/image/assets/foobar.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lua/image/assets/P4.pbm
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lua/image/assets/lena.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lua/image/assets/fabio.jpg
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lua/image/assets/P6.ppm
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lua/image/assets/P5.pgm
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lua/image/assets/lena.jpg
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lua/image/assets/P2.pgm
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lua/image/assets/gray16-1x2.png
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/image/1.1.alpha-0/lua/image/README.md
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+image 1.1.alpha-0 is now built and installed in /home/ddyang/torch/install/ (license: BSD)
+
+cmake -E make_directory build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="/home/ddyang/torch/install/bin/.." -DCMAKE_INSTALL_PREFIX="/home/ddyang/torch/install/lib/luarocks/rocks/optim/1.0.5-0" && make
+   
+-- Found Torch7 in /home/ddyang/torch/install
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ddyang/torch/pkg/optim/build
+cd build && make install
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/optim/1.0.5-0/lua/optim/sgd.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/optim/1.0.5-0/lua/optim/checkgrad.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/optim/1.0.5-0/lua/optim/adagrad.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/optim/1.0.5-0/lua/optim/cg.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/optim/1.0.5-0/lua/optim/rmsprop.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/optim/1.0.5-0/lua/optim/adadelta.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/optim/1.0.5-0/lua/optim/lswolfe.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/optim/1.0.5-0/lua/optim/nag.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/optim/1.0.5-0/lua/optim/adam.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/optim/1.0.5-0/lua/optim/cmaes.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/optim/1.0.5-0/lua/optim/rprop.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/optim/1.0.5-0/lua/optim/adamax.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/optim/1.0.5-0/lua/optim/Logger.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/optim/1.0.5-0/lua/optim/ConfusionMatrix.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/optim/1.0.5-0/lua/optim/init.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/optim/1.0.5-0/lua/optim/lbfgs.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/optim/1.0.5-0/lua/optim/polyinterp.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/optim/1.0.5-0/lua/optim/asgd.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/optim/1.0.5-0/lua/optim/fista.lua
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+optim 1.0.5-0 is now built and installed in /home/ddyang/torch/install/ (license: BSD)
+
+Installing optional Torch packages
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+gnuplot scm-1 is now built and installed in /home/ddyang/torch/install/ (license: BSD)
+
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+env scm-1 is now built and installed in /home/ddyang/torch/install/ (license: BSD)
+
+Warning: unmatched variable LUALIB
+cmake -E make_directory build && cd build && cmake .. -DLUALIB=  -DLUA_INCDIR="/home/ddyang/torch/install/include" -DLUA_LIBDIR="/home/ddyang/torch/install/lib" -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="/home/ddyang/torch/install/bin/.." -DCMAKE_INSTALL_PREFIX="/home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1" && make
+   
+-- Found Torch7 in /home/ddyang/torch/install
+-- OpenMP Found with compiler flag : -fopenmp
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ddyang/torch/extra/nnx/build
+[100%] Built target nnx
+cd build && make install
+[100%] Built target nnx
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lib/libnnx.so
+-- Set runtime path of "/home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lib/libnnx.so" to "$ORIGIN/../lib:/home/ddyang/torch/install/lib"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/SaturatedLU.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/Balance.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/Minus.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/DistNLLCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/SpatialPadding.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/MultiSoftMax.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/SpatialGraph.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/SpatialMaxSampling.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/ZeroGrad.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/SpatialColorTransform.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/FunctionWrapper.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/SpatialNormalization.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/SpatialRadialMatching.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/SuperCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/DataSetLabelMe.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/TreeNLLCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/DataList.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/SparseCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/SpatialPyramid.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/Toc.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/LA.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/CTCCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/SpatialSparseCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/Probe.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/SoftMaxTree.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/Tic.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/SpatialFovea.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/DataSetSamplingPascal.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/SpatialReSampling.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/SpatialClassifier.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/init.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/SpatialUpSampling.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/DataSet.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/SpatialMatching.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/SpatialReSamplingEx.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/DistMarginCriterion.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/SpatialRecursiveFovea.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/SpatialDownSampling.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/PullTable.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/PushTable.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/SpatialLinear.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/test-all.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/nnx/0.1-1/lua/nnx/test-omp.lua
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+nnx 0.1-1 is now built and installed in /home/ddyang/torch/install/ (license: BSD)
+
+Warning: unmatched variable LUALIB
+cmake -E make_directory build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release -DLUA=/home/ddyang/torch/install/bin/luajit -DLUALIB= -DLUA_BINDIR="/home/ddyang/torch/install/bin" -DLUA_INCDIR="/home/ddyang/torch/install/include" -DLUA_LIBDIR="/home/ddyang/torch/install/lib" -DLUADIR="/home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lua" -DLIBDIR="/home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lib" -DCONFDIR="/home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/conf" && make
+
+-- Lua: using information from luarocks
+-- Lua library guess (no info from luarocks): /home/ddyang/torch/install/lib/libluajit.so
+-- Lua found /home/ddyang/torch/install/bin/luajit
+-- Found readline library
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ddyang/torch/exe/qtlua/build
+[  6%] Built target libqtlua
+[ 18%] Built target libqlua
+[ 20%] Built target qlua
+[ 26%] Built target libqtsvg
+[ 28%] Built target libqtcore
+[ 30%] Built target libqtuiloader
+[ 43%] Built target libqtwidget
+[ 48%] Built target libqtgui
+[100%] Built target libqtide
+cd build && make install
+[  6%] Built target libqtlua
+[ 18%] Built target libqlua
+[ 20%] Built target qlua
+[ 26%] Built target libqtsvg
+[ 28%] Built target libqtcore
+[ 30%] Built target libqtuiloader
+[ 43%] Built target libqtwidget
+[ 48%] Built target libqtgui
+[100%] Built target libqtide
+Install the project...
+-- Install configuration: "Release"
+-- Up-to-date: /home/ddyang/torch/install/lib/libqtlua.so
+-- Up-to-date: /home/ddyang/torch/install/include/qtlua/qtluaengine.h
+-- Up-to-date: /home/ddyang/torch/install/include/qtlua/qtluautils.h
+-- Up-to-date: /home/ddyang/torch/install/include/qtlua/qtluaconf.h
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/conf/cmake/QtLuaConfig.cmake
+-- Up-to-date: /home/ddyang/torch/install/lib/libqlua.so
+-- Up-to-date: /home/ddyang/torch/install/bin/qlua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lib/libqtsvg.so
+-- Set runtime path of "/home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lib/libqtsvg.so" to "$ORIGIN/../lib"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lua/qtsvg/init.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lua/qtcore/init.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lib/libqtcore.so
+-- Set runtime path of "/home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lib/libqtcore.so" to "$ORIGIN/../lib"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lua/qtuiloader/init.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lua/qtuiloader/test.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lua/qtuiloader/test.ui
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lib/libqtuiloader.so
+-- Set runtime path of "/home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lib/libqtuiloader.so" to "$ORIGIN/../lib"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lua/qtwidget/init.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lib/libqtwidget.so
+-- Set runtime path of "/home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lib/libqtwidget.so" to "$ORIGIN/../lib"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lua/qtgui/init.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lib/libqtgui.so
+-- Set runtime path of "/home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lib/libqtgui.so" to "$ORIGIN/../lib"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lib/libqtide.so
+-- Set runtime path of "/home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lib/libqtide.so" to "$ORIGIN/../lib"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lua/qtide/init.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lua/qtide/prefs.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/qtlua/scm-1/lua/qtide/prefs.ui
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+qtlua scm-1 is now built and installed in /home/ddyang/torch/install/ (license: BSD)
+
+Warning: unmatched variable LUALIB
+cmake -E make_directory build && cd build && cmake .. -DLUALIB= -DLUA_LIBDIR="/home/ddyang/torch/install/lib" -DLUADIR="/home/ddyang/torch/install/lib/luarocks/rocks/qttorch/scm-1/lua" -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="/home/ddyang/torch/install/bin/.." -DCMAKE_INSTALL_PREFIX="/home/ddyang/torch/install/lib/luarocks/rocks/qttorch/scm-1" && make
+
+-- Found Torch7 in /home/ddyang/torch/install
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ddyang/torch/pkg/qttorch/build
+[100%] Built target qttorch
+cd build && make install
+[100%] Built target qttorch
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/qttorch/scm-1/lib/libqttorch.so
+-- Set runtime path of "/home/ddyang/torch/install/lib/luarocks/rocks/qttorch/scm-1/lib/libqttorch.so" to "$ORIGIN/../lib:/home/ddyang/torch/install/lib"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/qttorch/scm-1/lua/qttorch/init.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/qttorch/scm-1/lua/qttorch/doc
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/qttorch/scm-1/lua/qttorch/doc/README.md
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+qttorch scm-1 is now built and installed in /home/ddyang/torch/install/ (license: BSD)
+
+-- Found Torch7 in /home/ddyang/torch/install
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ddyang/torch/extra/threads/build.luarocks
+[ 60%] Built target threads
+[100%] Built target threadsmain
+[ 60%] Built target threads
+[100%] Built target threadsmain
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/threads/scm-1/lib/libthreads.so
+-- Set runtime path of "/home/ddyang/torch/install/lib/luarocks/rocks/threads/scm-1/lib/libthreads.so" to "$ORIGIN/../lib:/home/ddyang/torch/install/lib"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/threads/scm-1/lua/threads/init.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/threads/scm-1/lua/threads/threads.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/threads/scm-1/lua/threads/serialize.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/threads/scm-1/lua/threads/sharedserialize.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/threads/scm-1/lua/threads/queue.lua
+-- Up-to-date: /home/ddyang/torch/install/lib/libthreadsmain.so
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+threads scm-1 is now built and installed in /home/ddyang/torch/install/ (license: BSD)
+
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+graphicsmagick 1.scm-0 is now built and installed in /home/ddyang/torch/install/ (license: BSD)
+
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+argcheck scm-1 is now built and installed in /home/ddyang/torch/install/ (license: BSD)
+
+   cmake -E make_directory build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="/home/ddyang/torch/install/bin/.." -DCMAKE_INSTALL_PREFIX="/home/ddyang/torch/install/lib/luarocks/rocks/audio/0.1-0" && make
+   
+-- Found Torch7 in /home/ddyang/torch/install
+SOX_INCLUDE_DIR: /usr/include
+SOX_LIBRARIES: /usr/lib/x86_64-linux-gnu/libsox.so
+FFTW_INCLUDE_DIR: /usr/include
+FFTW_LIBRARIES: /usr/lib/x86_64-linux-gnu/libfftw3.so
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ddyang/torch/extra/audio/build
+[ 50%] Built target sox
+[100%] Built target audio
+cd build && make install
+[ 50%] Built target sox
+[100%] Built target audio
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/audio/0.1-0/lib/libsox.so
+-- Set runtime path of "/home/ddyang/torch/install/lib/luarocks/rocks/audio/0.1-0/lib/libsox.so" to "$ORIGIN/../lib:/home/ddyang/torch/install/lib"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/audio/0.1-0/lib/libaudio.so
+-- Set runtime path of "/home/ddyang/torch/install/lib/luarocks/rocks/audio/0.1-0/lib/libaudio.so" to "$ORIGIN/../lib:/home/ddyang/torch/install/lib"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/audio/0.1-0/lua/audio/init.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/audio/0.1-0/lua/audio/voice.mp3
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+audio 0.1-0 is now built and installed in /home/ddyang/torch/install/ (license: RWTFPL)
+
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+fftw3 scm-1 is now built and installed in /home/ddyang/torch/install/ (license: BSD)
+
+cmake -E make_directory build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="/home/ddyang/torch/install/bin/.." -DCMAKE_INSTALL_PREFIX="/home/ddyang/torch/install/lib/luarocks/rocks/signal/scm-1" && make
+   
+-- Found Torch7 in /home/ddyang/torch/install
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ddyang/torch/extra/signal/build
+[100%] Built target signal
+cd build && make install
+[100%] Built target signal
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/signal/scm-1/lib/libsignal.so
+-- Set runtime path of "/home/ddyang/torch/install/lib/luarocks/rocks/signal/scm-1/lib/libsignal.so" to "$ORIGIN/../lib:/home/ddyang/torch/install/lib"
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/signal/scm-1/lua/signal/fft.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/signal/scm-1/lua/signal/wavelet.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/signal/scm-1/lua/signal/convolution.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/signal/scm-1/lua/signal/extramath.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/signal/scm-1/lua/signal/init.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/signal/scm-1/lua/signal/ffi.lua
+-- Installing: /home/ddyang/torch/install/lib/luarocks/rocks/signal/scm-1/lua/signal/complex.lua
+Updating manifest for /home/ddyang/torch/install/lib/luarocks/rocks
+signal scm-1 is now built and installed in /home/ddyang/torch/install/ (license: RWTFPL)
+
+
+
+Do you want to automatically prepend the Torch install location
+to PATH and LD_LIBRARY_PATH in your /home/ddyang/.bashrc? (yes/no)
+[yes] >>> 
